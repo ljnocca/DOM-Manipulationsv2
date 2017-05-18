@@ -80,4 +80,11 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   // TASK #8
+  var imgNode = document.querySelector('#city-img') //grab image node
+  var srcNumber = parseInt(imgNode.src.slice(-1))	//parse the number out of the source property of image node. Slice(-1) will just grab the last character
+  srcNumber += 1 //increase last number on eachclick
+  if (srcNumber > 9){ //because lorempixel shows blank picture after 9th picture
+  	srcNumber=1
+  }
+  imgNode.src = imgNode.src.slice(0,-1) + srcNumber //update the imgNode src by slicing up to the last number and adding the srcNumber
 })
