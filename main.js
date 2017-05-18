@@ -59,17 +59,23 @@ document.querySelector("#remove button").addEventListener('click',function(){
 
 document.querySelector("#reverse-squares button").addEventListener('click',function(){
   // TASK #6
-  	var squares = document.querySelector('.square')
-  	var squareArray = []
-  	squareArray.push(squares)
-  	var squareSequence = 0
-  	for (var i = squareArray.length; i>=0; i--){
-  		
+  	var outerBox = document.querySelector('#reverse-squares .answer-box')
+  	var squareNodes = outerBox.children
+  	for (var i = squareNodes.length - 1;i >= 0; i--){ //reverse loop
+  		outerBox.appendChild(squareNodes[i]) //append child back into parent node
   	}
+
 })
 
 document.querySelector("#pig-latin button").addEventListener('click',function(){
   // TASK #7
+  var outerBox = document.querySelector('#tasks')
+  var liNodes = outerBox.children
+
+  for (var i = 0; i<liNodes.length; i++){//itterate through the length of the li nodes
+  	liNodes[i].innerHTML= liNodes[i].innerHTML.split('').reverse().join('') //redefine the innerHTML of those li's by splitting into an array, reversing the order of that array, and joining
+  } 
+  	
 })
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
